@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import GlobalStyle from './globalStyles';
 
-import { HeaderNav, NavMenu, Hero } from './components';
+import { HeaderNav, NavMenu, Hero, Features } from './components';
 
 class App extends Component {
   constructor(){
@@ -23,6 +23,7 @@ class App extends Component {
         {this.state.navToggle &&  <NavMenu toggleNavigation={this.toggleNavigation} />}
         <HeaderNav toggleNavigation={this.toggleNavigation} />
         <Hero />
+        <Features />
       </React.Fragment>  
     )
   }
