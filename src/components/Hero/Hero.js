@@ -17,26 +17,26 @@ const Hero = () => {
             background:hsl(231, 69%, 60%);
             position:absolute;
             right:0;
-            top:60px;
+            top:40px;
             z-index:-1;
             border-radius:100px 0 0 100px;
         }
     `
 
     const HeroPhraseCont = styled.div`
-        margin:40px 0;
+        margin:40px 0 0;
         padding:0 20px;
         text-align:center;
 
         h1{
             font-weight:600;
-            font-size:1.8rem;
+            font-size:1.5rem;
             line-height:1.4;
             margin-bottom:20px;
         }
 
         p{
-            font-size:.9rem;
+            font-size:.8rem;
             color:hsl(229, 8%, 60%);
             line-height:1.8;
             margin-bottom:20px;
@@ -44,12 +44,13 @@ const Hero = () => {
 
         button{
             max-width:50%;
-            padding:20px 30px;
+            padding:20px;
             border:none;
             background:#F9F9F9;
             box-shadow:0px 4px 6px rgba(0,0,0,.1);
             border-radius:5px;
             font-weight:500;
+            font-size:.8rem;
             color:hsl(229, 31%, 21%);
             cursor:pointer;
 
