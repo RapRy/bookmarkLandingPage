@@ -14,6 +14,10 @@ const HeaderNav = ({toggleNavigation}) => {
         display:grid;
         grid-template-columns: 1fr auto;
         align-items:center;
+
+        .headerNavigation{
+            cursor:pointer;
+        }
     `
 
     const toggleEvent = () => {

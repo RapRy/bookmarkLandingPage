@@ -20,6 +20,10 @@ const NavMenu = ({toggleNavigation}) => {
             grid-template-columns: 1fr auto;
             align-items:center;
             margin-bottom:40px;
+            
+            .closeNavigation{
+                cursor:pointer;
+            }
         }
 
         .menuCont{

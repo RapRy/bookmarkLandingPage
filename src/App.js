@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import GlobalStyle from './globalStyles';
 
-import { HeaderNav, NavMenu, Hero, Features } from './components';
+import { HeaderNav, NavMenu, Hero, Features, DLextension, Faq } from './components';
 
 class App extends Component {
   constructor(){
@@ -24,6 +24,8 @@ class App extends Component {
         <HeaderNav toggleNavigation={this.toggleNavigation} />
         <Hero />
         <Features />
+        <DLextension />
+        <Faq />
       </React.Fragment>  
     )
   }
