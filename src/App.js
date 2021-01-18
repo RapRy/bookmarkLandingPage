@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import GlobalStyle from './globalStyles';
 
-import { HeaderNav, NavMenu, Hero, Features, DLextension, Faq } from './components';
+import { HeaderNav, NavMenu, Hero, Features, DLextension, Faq, Newsletter, Sitemap } from './components';
 
 class App extends Component {
   constructor(){
@@ -26,6 +26,8 @@ class App extends Component {
         <Features />
         <DLextension />
         <Faq />
+        <Newsletter />
+        <Sitemap />
       </React.Fragment>  
     )
   }
