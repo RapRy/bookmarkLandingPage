@@ -4,7 +4,8 @@ import styled from 'styled-components'
 
 import iconArrow from '../../images/icon-arrow.svg'
 
-const Accord = ({ val }) => {
+const Accord = ({ val, ref }) => {
+
     const AccordWrap = styled.div`
         display:grid;
         grid-template-columns:1fr auto;
@@ -20,7 +21,7 @@ const Accord = ({ val }) => {
     `
 
     return (
-        <AccordWrap>
+        <AccordWrap ref={ref}>
             <p>{val}</p>
             <img src={iconArrow} alt="arrow" />
         </AccordWrap>
