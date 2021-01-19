@@ -46,12 +46,23 @@ const Faq = () => {
         left:50%;
         transform:translateX(-50%);
     `
-
     const data = [
-        "What is Bookmark",
-        "How can I request a new browser?",
-        "Is there a mobile app?",
-        "What about other Chromium browsers?"
+        {
+            question:"What is Bookmark",
+            answer:"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum condimentum tellus eget justo laoreet porttitor. Sed vel nunc urna. Morbi urna purus, dictum quis sollicitudin a, tempus vitae diam."
+        },
+        {
+            question:"How can I request a new browser?",
+            answer:"Donec egestas ipsum elit, sed ornare lorem tincidunt id. Ut velit tortor, rhoncus a pretium at, imperdiet ac nisi."
+        },
+        {
+            question:"Is there a mobile app?",
+            answer:"Nulla laoreet, purus ac commodo euismod, ligula libero viverra tortor, viverra euismod sem dolor et est. Fusce blandit venenatis metus, at cursus lectus consectetur sit amet. Etiam congue euismod elit, ac ornare risus mollis id."
+        },
+        {
+            question:"What about other Chromium browsers?",
+            answer:"Mauris et sem eleifend, pharetra tortor sit amet, facilisis odio. Nulla ex enim, dignissim condimentum nunc at, interdum euismod turpis. Ut ut accumsan tortor. Cras sit amet varius nisl."
+        }
     ]
 
     return (

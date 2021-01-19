@@ -1,6 +1,8 @@
-import React from 'react'
+import React, {useState, useRef} from 'react'
 
 import styled from 'styled-components'
+
+import InputField from './InputField'
 
 const Newsletter = () => {
     const NewsletterCont = styled.div`
@@ -27,21 +29,6 @@ const Newsletter = () => {
         }
 
         .newsForm{
-            input{
-                width:100%;
-                border-radius:5px;
-                padding:10px 20px;
-                display:inline-block;
-                margin-bottom:10px;
-                border:none;
-                font-size:.9rem;
-                
-                &::placeholder{
-                    font-size:.9rem;
-                    color:hsl(229, 8%, 60%);
-                }
-            }
-
             button{
                 width:100%;
                 border-radius:5px;
@@ -56,6 +43,23 @@ const Newsletter = () => {
             }
         }
     `
+    const [inputErr, setInputErr] = useState(0);
+    const inputRef = useRef(null);
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        const reg = /\S+@\S+\.\S+/;
+
+        if(inputRef.current.value === ""){
+            setInputErr(2);
+        }else if(!reg.test(inputRef.current.value)){
+            setInputErr(1);
+        }else{
+            setInputErr(0);
+            console.log("no error")
+        }
+    }
 
     return (
         <div>
@@ -65,8 +69,8 @@ const Newsletter = () => {
                     <h1>Stay up-to-date with what we're doing</h1>
                 </div>
                 <div className="newsForm">
-                    <form id="emailForm">
-                        <input type="email" name="email" placeholder="Enter your email address"/>
+                    <form id="emailForm" onSubmit={submitForm} noValidate>
+                        <InputField inputErr={inputErr} ref={inputRef} />
                         <button type="submit" className="submitEmail">Contact Us</button>
                     </form>
                 </div>
