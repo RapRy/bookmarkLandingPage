@@ -9,7 +9,15 @@ const Newsletter = () => {
         margin:60px 0 0;
         background:hsl(231, 69%, 60%);
         padding:60px 20px;
-        text-align:center;
+        
+        & > div{
+            text-align:center;
+
+            @media (min-width:500px){
+                width:500px;
+                margin:0 auto;
+            }
+        }
 
         .heading{
             margin-bottom:20px;
@@ -19,6 +27,10 @@ const Newsletter = () => {
                 font-size:.7rem;
                 letter-spacing:5px;
                 margin-bottom:10px;
+
+                @media (min-width:500px){
+                    margin-bottom:40px;
+                }
             }
 
             h1{
@@ -29,6 +41,14 @@ const Newsletter = () => {
         }
 
         .newsForm{
+            form{
+                @media (min-width:500px){
+                    display:grid;
+                    grid-template-columns:1fr auto;
+                    grid-gap:10px;
+                }
+            }
+
             button{
                 width:100%;
                 border-radius:5px;
@@ -40,6 +60,10 @@ const Newsletter = () => {
                 border:none;
                 background:hsl(0, 94%, 66%);
                 cursor:pointer;
+
+                @media (min-width:500px){
+                    height:40px;
+                }
             }
         }
     `
@@ -62,8 +86,8 @@ const Newsletter = () => {
     }
 
     return (
-        <div>
-            <NewsletterCont>
+        <NewsletterCont>
+            <div>
                 <div className="heading">
                     <p>35,000+ ALREADY JOINED</p>
                     <h1>Stay up-to-date with what we're doing</h1>
@@ -74,8 +98,8 @@ const Newsletter = () => {
                         <button type="submit" className="submitEmail">Contact Us</button>
                     </form>
                 </div>
-            </NewsletterCont>
-        </div>
+            </div>
+        </NewsletterCont>
     )
 }
 

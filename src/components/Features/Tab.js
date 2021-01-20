@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 
 import styled from 'styled-components'
 
 import featureTab1 from '../../images/illustration-features-tab-1.svg'
 
 const Tab = ({ tabImage, tabDesc, tabHead }) => {
+    const imgRef = useRef(null)
+    const [imgHeight, setImgHeight] = useState(0)
+
     const TabImageCont = styled.div`
         margin-top:60px;
         padding:0 20px;
         position:relative;
 
         .tabImageBg{
-            height:200px;
+            height:${props => props.imgHeight > 300 ? (props.imgHeight - 100)+"px" : (props.imgHeight - 60)+"px"};
             width:75%;
             background:hsl(231, 69%, 60%);
             position:absolute;
             left:0;
-            top:40px;
+            top:${props => props.imgHeight > 300 ? "100px" : "60px"};
             z-index:-1;
             border-radius:0 100px 100px 0;
         }
@@ -42,10 +45,17 @@ const Tab = ({ tabImage, tabDesc, tabHead }) => {
         }
     `
 
+    useEffect(() => {
+        setImgHeight(imgHeight !== 0 && imgRef.current.clientHeight)
+        window.addEventListener('resize', () => {
+            setImgHeight(imgRef.current.clientHeight)
+        })
+    }, [imgHeight])
+
     return (
         <div>
-            <TabImageCont>
-                <img src={tabImage} alt="Illustraion Hero"/>
+            <TabImageCont imgHeight={imgHeight}>
+                <img src={tabImage} alt="Illustraion Hero" ref={imgRef}/>
                 <div className="tabImageBg"></div>
             </TabImageCont>
             <TabPhraseCont>

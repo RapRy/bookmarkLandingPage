@@ -41,10 +41,11 @@ const Accord = ({ val }) => {
             }
         }
     `
+    const toggleStatus = () => status === false ? setStatus(true) : setStatus(false);
 
     return (
         <AccordWrap status={status}>
-            <div className="accordHead" onClick={() => setStatus(true)}>
+            <div className="accordHead" onClick={toggleStatus}>
                 <p>{val.question}</p>
                 <img src={iconArrow} alt="arrow" />
             </div>

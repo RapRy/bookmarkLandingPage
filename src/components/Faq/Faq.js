@@ -10,6 +10,11 @@ const Faq = () => {
         padding:0 20px;
         text-align:center;
 
+        @media (min-width:500px){
+            width:500px;
+            margin:60px auto 0;
+        }
+
         h1{
             font-weight:600;
             font-size:1.5rem;
@@ -28,6 +33,11 @@ const Faq = () => {
     const AccordCont = styled.div`
         margin:40px 0 0;
         padding:0 20px;
+
+        @media (min-width:500px){
+            width:500px;
+            margin:40px auto 0;
+        }
     `
     
     const CtaBtn = styled.button`

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import styled from 'styled-components'
 
@@ -6,18 +6,21 @@ import illustrationHero from '../../images/illustration-hero.svg';
 
 const Hero = () => {
 
+    const imgRef = useRef(null);
+    const [imgHeight, setImgHeight] = useState(0);
+
     const HeroImageCont = styled.div`
         margin-top:60px;
         padding:0 20px;
         position:relative;
 
         .heroImageBg{
-            height:200px;
+            height:${props => props.imgHeight > 300 ? (props.imgHeight - 100)+"px" : (props.imgHeight - 60)+"px"};
             width:75%;
             background:hsl(231, 69%, 60%);
             position:absolute;
             right:0;
-            top:40px;
+            top:${props => props.imgHeight > 300 ? "100px" : "60px"};
             z-index:-1;
             border-radius:100px 0 0 100px;
         }
@@ -67,10 +70,18 @@ const Hero = () => {
         }
     `
 
+    useEffect(() => {
+        setImgHeight(imgHeight !== 0 && imgRef.current.clientHeight)
+        window.addEventListener('resize', () => {
+            setImgHeight(imgRef.current.clientHeight)
+        })
+
+    }, [imgHeight])
+
     return (
         <div>
-            <HeroImageCont>
-                <img src={illustrationHero} alt="Illustraion Hero"/>
+            <HeroImageCont imgHeight={imgHeight}>
+                <img src={illustrationHero} alt="Illustraion Hero" ref={imgRef}/>
                 <div className="heroImageBg"></div>
             </HeroImageCont>
             <HeroPhraseCont>
