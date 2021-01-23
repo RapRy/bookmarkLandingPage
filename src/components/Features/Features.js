@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import styled from 'styled-components'
 import Tab from './Tab';
@@ -8,8 +8,6 @@ import featureTab2 from '../../images/illustration-features-tab-2.svg'
 import featureTab3 from '../../images/illustration-features-tab-3.svg'
 
 const Features = () => {
-
-    const imgRef = useRef(null)
 
     const tabContent = [
         {
@@ -34,7 +32,6 @@ const Features = () => {
 
     const [curTab, setCurTab] = useState(tabContent[0])
     const [curClass, setCurClass] = useState(0);
-    const [imgHeight, setImgHeight] = useState(0)
 
     const FeaturesMain = styled.div`
         margin:60px 0 0;
@@ -100,12 +97,7 @@ const Features = () => {
     const clickEvent = (curElem) => {
         setCurTab(tabContent[curElem])
         setCurClass(curElem)
-        setImgHeight(imgRef.current.clientHeight)
     }
-
-    useEffect(() => {
-        setImgHeight(imgRef.current.clientHeight)
-    }, [curClass])
 
     return (
         <div>
@@ -124,7 +116,7 @@ const Features = () => {
                     })
                 }
             </FeaturesTabMenu>
-            <Tab tabImage={curTab.featImage} tabDesc={curTab.featDesc} tabHead={curTab.featHead} imgHeight={imgHeight} ref={imgRef} />
+            <Tab tabImage={curTab.featImage} tabDesc={curTab.featDesc} tabHead={curTab.featHead} tabTitle={curTab.tabTitle} />
         </div>
     )
 }
