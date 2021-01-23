@@ -2,24 +2,29 @@ import React, { useRef, useState, useEffect } from 'react'
 
 import styled from 'styled-components'
 
-import featureTab1 from '../../images/illustration-features-tab-1.svg'
-
-const Tab = ({ tabImage, tabDesc, tabHead }) => {
-    const imgRef = useRef(null)
-    const [imgHeight, setImgHeight] = useState(0)
+const Tab = React.forwardRef(({ tabImage, tabDesc, tabHead, imgHeight }, ref) => {
+    
+    // const [imgHeight, setImgHeight] = useState(0)
 
     const TabImageCont = styled.div`
         margin-top:60px;
         padding:0 20px;
         position:relative;
 
+        img{
+            position:relative;
+            left:50%;
+            transform:translateX(-50%);
+            top:0;
+        }
+
         .tabImageBg{
-            height:${props => props.imgHeight > 300 ? (props.imgHeight - 100)+"px" : (props.imgHeight - 60)+"px"};
-            width:75%;
+            height:${props => props.imgHeight+"px"};
+            width:65%;
             background:hsl(231, 69%, 60%);
             position:absolute;
             left:0;
-            top:${props => props.imgHeight > 300 ? "100px" : "60px"};
+            top:40px;
             z-index:-1;
             border-radius:0 100px 100px 0;
         }
@@ -45,17 +50,20 @@ const Tab = ({ tabImage, tabDesc, tabHead }) => {
         }
     `
 
-    useEffect(() => {
-        setImgHeight(imgHeight !== 0 && imgRef.current.clientHeight)
-        window.addEventListener('resize', () => {
-            setImgHeight(imgRef.current.clientHeight)
-        })
-    }, [imgHeight])
+    // useEffect(() => {
+    //     setImgHeight(imgHeight !== 0 && imgRef.current.clientHeight)
+    //     window.addEventListener('resize', () => {
+    //         setImgHeight(imgRef.current.clientHeight)
+    //     })
+
+    //     console.log(tabHead + " " + imgHeight)
+    //     console.log(imgRef.current.alt)
+    // }, [imgHeight])
 
     return (
         <div>
             <TabImageCont imgHeight={imgHeight}>
-                <img src={tabImage} alt="Illustraion Hero" ref={imgRef}/>
+                <img src={tabImage} alt="Illustraion Hero" ref={ref}/>
                 <div className="tabImageBg"></div>
             </TabImageCont>
             <TabPhraseCont>
@@ -64,6 +72,7 @@ const Tab = ({ tabImage, tabDesc, tabHead }) => {
             </TabPhraseCont>
         </div>
     )
-}
+})
+
 
 export default Tab
