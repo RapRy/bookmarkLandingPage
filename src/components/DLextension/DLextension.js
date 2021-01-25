@@ -32,6 +32,10 @@ const DLextension = () => {
         padding:0 20px;
         text-align:center;
 
+        @media (min-width:800px){
+            margin:100px 0 0;
+        }
+
         h1{
             font-weight:600;
             font-size:1.5rem;
@@ -44,6 +48,11 @@ const DLextension = () => {
             color:hsl(229, 8%, 60%);
             line-height:1.8;
             margin-bottom:20px;
+
+            @media (min-width:500px){
+                width:500px;
+                margin:0 auto 20px;
+            }
         }
     `
 
@@ -53,6 +62,13 @@ const DLextension = () => {
         display:grid;
         grid-template-columns:1fr;
         grid-gap:10px;
+
+        @media (min-width:800px){
+            grid-template-columns:repeat(3, 1fr);
+            grid-template-rows:1fr 20px 20px;
+            grid-column-gap:20px;
+            grid-row-gap:0;
+        }
     `
 
     return (

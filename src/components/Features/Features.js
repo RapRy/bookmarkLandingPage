@@ -50,17 +50,41 @@ const Features = () => {
             color:hsl(229, 8%, 60%);
             line-height:1.8;
             margin-bottom:20px;
+
+            @media (min-width:500px){
+                width:500px;
+                margin:0 auto 20px;
+            }
         }
     `
 
     const FeaturesTabMenu = styled.div`
         padding:30px 20px 0;
+
+        @media (min-width:500px){
+            width:500px;
+            margin:40px auto 0;
+        }
+
+        @media (min-width:800px){
+            width:700px;
+            text-align:center;
+            padding:0px 20px 0;
+        }
         
         .tabLink{
             padding:20px 0;
             border-top:1px solid hsl(229, 8%, 60%);
             position:relative;
             cursor:pointer;
+
+            @media (min-width:800px){
+                display:inline-block;
+                border-top:none;
+                border-bottom:1px solid hsl(229, 8%, 60%);
+                padding:20px 30px;
+                width:33.3%;
+            }
 
             p{
                 text-align:center;
@@ -81,6 +105,10 @@ const Features = () => {
                     left:50%;
                     transform:translateX(-50%);
                     z-index:2;
+
+                    @media (min-width:800px){
+                        width:100%;
+                    }
                 }
 
                 p{

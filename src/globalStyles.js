@@ -16,6 +16,15 @@ const GlobalStyle = createGlobalStyle`
     a{
         text-decoration:none;
     }
+
+    ul{
+        list-style:none;
+    }
+
+    body{
+        max-width:1140px;
+        margin:0 auto;
+    }
 `
 
 export default GlobalStyle
