@@ -12,29 +12,12 @@ const Sitemap = () => {
         background:hsl(229, 31%, 21%);
         text-align:center;
 
-        @media (min-width:800px){
-            display:grid;
-            grid-template-columns:auto 1fr auto;
-            grid-gap:30px;
-            align-items:center;
-            text-align:left;
-            padding:20px;
-        }
-
         .logoCont{
             margin-bottom:30px;
-
-            @media (min-width:800px){
-                margin-bottom:0;
-            }
         }
 
         .navCont{
             margin-bottom:30px;
-
-            @media (min-width:800px){
-                margin-bottom:0;
-            }
 
             .sitemapMenu{
                 display:block;
@@ -43,12 +26,6 @@ const Sitemap = () => {
                 color:#fff;
                 font-weight:400;
                 font-size:.9rem;
-
-                @media (min-width:800px){
-                    display:inline-block;
-                    padding-right:15px;
-
-                }
             }
         }
 
