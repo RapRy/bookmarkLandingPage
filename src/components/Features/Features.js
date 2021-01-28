@@ -33,63 +33,88 @@ const Features = () => {
     const [curTab, setCurTab] = useState(tabContent[0])
     const [curClass, setCurClass] = useState(0);
 
-    const FeaturesMain = styled.div`
-        margin:60px 0 0;
-        padding:0 20px;
-        text-align:center;
+    const FeaturesCont = styled.div`
 
-        h1{
-            font-weight:600;
-            font-size:1.5rem;
-            line-height:1.4;
-            margin-bottom:20px;
-        }
+        .featuresMain{
+            margin:60px 0 0;
+            padding:0 20px;
+            text-align:center;
 
-        p{
-            font-size:.8rem;
-            color:hsl(229, 8%, 60%);
-            line-height:1.8;
-            margin-bottom:20px;
-        }
-    `
-
-    const FeaturesTabMenu = styled.div`
-        padding:30px 20px 0;
-        
-        .tabLink{
-            padding:20px 0;
-            border-top:1px solid hsl(229, 8%, 60%);
-            position:relative;
-            cursor:pointer;
-
-            p{
-                text-align:center;
-                font-size:.9rem;
-                font-weight:500;
-                color:hsl(229, 8%, 60%);
+            @media all and (min-width:500px){
+                max-width:500px;
+                margin:60px auto 0;
             }
 
-            &.tabActive{
-                &::after{
-                    content:'';
-                    width:45%;
-                    height:4px;
-                    background:hsl(0, 94%, 66%);
-                    display:block;
-                    position:absolute;
-                    bottom:0;
-                    left:50%;
-                    transform:translateX(-50%);
-                    z-index:2;
+            h1{
+                font-weight:600;
+                font-size:1.5rem;
+                line-height:1.4;
+                margin-bottom:20px;
+            }
+
+            p{
+                font-size:.8rem;
+                color:hsl(229, 8%, 60%);
+                line-height:1.8;
+                margin-bottom:20px;
+            }
+        }
+
+        .featuresTabMenu{
+            padding:30px 20px 0;
+
+            @media all and (min-width:500px){
+                max-width:650px;
+                margin:0 auto;
+            }
+        
+            .tabLink{
+                padding:20px 0;
+                border-top:1px solid hsl(229, 8%, 60%);
+                position:relative;
+                cursor:pointer;
+
+                @media all and (min-width:850px){
+                    display:inline-block;
+                    border-top:none;
+                    border-bottom:1px solid hsl(229, 8%, 60%);
+                    padding:20px;
+                    width:33.3%;
                 }
 
                 p{
-                    color:hsl(229, 31%, 21%);
+                    text-align:center;
+                    font-size:.9rem;
+                    font-weight:500;
+                    color:hsl(229, 8%, 60%);
                 }
-            }
 
-            &:last-child{
-                border-bottom:1px solid hsl(229, 8%, 60%);  
+                &.tabActive{
+                    &::after{
+                        content:'';
+                        width:45%;
+                        height:4px;
+                        background:hsl(0, 94%, 66%);
+                        display:block;
+                        position:absolute;
+                        bottom:0;
+                        left:50%;
+                        transform:translateX(-50%);
+                        z-index:2;
+
+                        @media all and (min-width:850px){
+                            width:100%;
+                        }
+                    }
+
+                    p{
+                        color:hsl(229, 31%, 21%);
+                    }
+                }
+
+                &:last-child{
+                    border-bottom:1px solid hsl(229, 8%, 60%);  
+                }
             }
         }
     `
@@ -100,12 +125,12 @@ const Features = () => {
     }
 
     return (
-        <div>
-            <FeaturesMain>
+        <FeaturesCont>
+            <div className="featuresMain">
                 <h1>Features</h1>
                 <p>Our aim is to make it quick and easy for you to access your favourite websites. Your bookmarks sync between your devices so you can access them on the go.</p>
-            </FeaturesMain>
-            <FeaturesTabMenu>
+            </div>
+            <div className="featuresTabMenu">
                 {
                     tabContent.map((tab, i) => {
                         return(
@@ -115,9 +140,9 @@ const Features = () => {
                         )
                     })
                 }
-            </FeaturesTabMenu>
+            </div>
             <Tab tabImage={curTab.featImage} tabDesc={curTab.featDesc} tabHead={curTab.featHead} tabTitle={curTab.tabTitle} />
-        </div>
+        </FeaturesCont>
     )
 }
 

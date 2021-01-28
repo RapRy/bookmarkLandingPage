@@ -14,6 +14,26 @@ const Card = ({ version, name, logo }) => {
 
         &:last-child{margin-bottom:0;}
 
+        @media all and (min-width:850px){
+            margin-bottom:0;
+
+            &:nth-child(1){
+                // grid-row:1 / 4;
+                margin-bottom:40px;
+            }
+
+            &:nth-child(2){
+                // grid-row:2 / 5;
+                margin-top:20px;
+                margin-bottom:20px;
+            }
+
+            &:nth-child(3){
+                // grid-row:3 / 6;
+                margin-top:40px;
+            }
+        }
+
         .browserDetails{
             padding:0 0 40px;
             position:relative;

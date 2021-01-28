@@ -7,34 +7,59 @@ import iconFacebook from '../../images/icon-facebook.svg'
 import iconTwitter from '../../images/icon-twitter.svg'
 
 const Sitemap = () => {
-    const SitemapCont = styled.div`
-        padding:40px 20px;
+
+    const Footer = styled.div`
         background:hsl(229, 31%, 21%);
-        text-align:center;
+        padding:40px 0;
 
-        .logoCont{
-            margin-bottom:30px;
-        }
+        @media all and (min-width:850px){ padding:20px 0;}
 
-        .navCont{
-            margin-bottom:30px;
+        .sitemapCont{
+            padding:0 20px;
+            text-align:center;
 
-            .sitemapMenu{
-                display:block;
-                text-align:center;
-                padding:15px 0;
-                color:#fff;
-                font-weight:400;
-                font-size:.9rem;
+            @media all and (min-width:850px){
+                max-width:1440px;
+                display:grid;
+                grid-template-columns:auto 1fr auto;
+                grid-gap:30px;
+                align-items:center;
+                text-align:left;
             }
-        }
 
-        .smFacebook{margin-right:30px;}
+            .logoCont{
+                margin-bottom:30px;
+                @media all and (min-width:850px){margin-bottom:0;}
+            }
+
+            .navCont{
+                margin-bottom:30px;
+
+                @media all and (min-width:850px){margin-bottom:0;}
+
+                .sitemapMenu{
+                    display:block;
+                    text-align:center;
+                    padding:15px 0;
+                    color:#fff;
+                    font-weight:400;
+                    font-size:.9rem;
+
+                    @media all and (min-width:850px){
+                        display:inline-block;
+                        padding:15px 20px 15px 0px;
+                        font-size:.8rem;
+                    }
+                }
+            }
+
+            .smFacebook{margin-right:30px;}
+        }
     `
 
     return (
-        <div>
-            <SitemapCont>
+        <Footer>
+            <div className="sitemapCont">
                 <div className="logoCont">
                     <img src={logoBookmark} alt="Logo Alt" />
                 </div>
@@ -47,8 +72,8 @@ const Sitemap = () => {
                     <a href="#" className="smFacebook"><img src={iconFacebook} alt="facebook icon" /></a>
                     <a href="#" className="smTwitter"><img src={iconTwitter} alt="twitter icon" /></a>
                 </div>
-            </SitemapCont>
-        </div>
+            </div>
+        </Footer>
     )
 }
 
