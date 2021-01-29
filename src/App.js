@@ -20,7 +20,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <GlobalStyle />
-        {this.state.navToggle &&  <NavMenu toggleNavigation={this.toggleNavigation} />}
+        {this.state.navToggle === true &&  <NavMenu toggleNavigation={this.toggleNavigation} />}
+        {/* <NavMenu toggleNavigation={this.toggleNavigation} /> */}
         <HeaderNav toggleNavigation={this.toggleNavigation} />
         <Hero />
         <Features />

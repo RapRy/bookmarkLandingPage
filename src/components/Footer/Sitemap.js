@@ -25,6 +25,7 @@ const Sitemap = () => {
                 grid-gap:30px;
                 align-items:center;
                 text-align:left;
+                margin:0 auto;
             }
 
             .logoCont{

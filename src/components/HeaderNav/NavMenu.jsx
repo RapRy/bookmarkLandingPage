@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 import iconClose from '../../images/icon-close.svg'
 import logoBookmark from '../../images/logo-bookmark-alt.svg'
@@ -8,12 +8,31 @@ import iconFacebook from '../../images/icon-facebook.svg'
 import iconTwitter from '../../images/icon-twitter.svg'
 
 const NavMenu = ({toggleNavigation}) => {
+
+    const [trigger, setTrigger] = useState(true);
+
+    const timer = 400;
+
+    const animate = keyframes`
+        0%{
+            top:-999px;
+        }
+        100%{
+            top:0;
+        }
+    `;
+
     const NavMenuCont = styled.div`
-        min-width:375px;
-        min-height:100vh;
+        width:100%;
+        height:100vh;
         padding:20px;
         margin:0 auto;
-        background:hsla(229, 31%, 21%, .9);
+        background:hsla(229, 31%, 21%, .95);
+        position:absolute;
+        left:0;
+        z-index:3;
+
+        animation:${animate} ${timer}ms ease-in-out ${({trigger}) => trigger === false ? "reverse forwards" : ""};
 
         .navMenuHeader{
             display:grid;
@@ -67,12 +86,21 @@ const NavMenu = ({toggleNavigation}) => {
     `
 
     const toggleEvent = () => {
-        
-        toggleNavigation(false)
+        setTrigger(false)
+
+        setTimeout(() => {
+            toggleNavigation(false)
+        }, timer)
     }
 
+    // useEffect(() => {
+    //     if(toggleNavigation === true){
+    //         setTrigger(true);
+    //     }
+    // }, [])
+
     return (
-        <NavMenuCont>
+        <NavMenuCont trigger={trigger}>
             <div className="navMenuHeader">
                 <img src={logoBookmark} alt="Logo Alt" className="logoAlt" />
                 <img src={iconClose} alt="Close Menu" className="closeNavigation" onClick={toggleEvent} />

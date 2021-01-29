@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const NavList = () => {
     const NavMenuList = styled.nav`
+
         li{
             display:inline-block;
             margin-right:40px;
