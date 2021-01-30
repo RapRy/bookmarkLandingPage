@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import Tab from './Tab';
 
 import featureTab1 from '../../images/illustration-features-tab-1.svg'
@@ -32,6 +32,11 @@ const Features = () => {
 
     const [curTab, setCurTab] = useState(tabContent[0])
     const [curClass, setCurClass] = useState(0);
+
+    const animateTab = keyframes`
+        0%{height:0px;}
+        100%{height:4px;}
+    `
 
     const FeaturesCont = styled.div`
 
@@ -87,13 +92,15 @@ const Features = () => {
                     font-size:.9rem;
                     font-weight:500;
                     color:hsl(229, 8%, 60%);
+                    transition:color 500ms ease-in-out;
                 }
 
                 &.tabActive{
+
                     &::after{
                         content:'';
                         width:45%;
-                        height:4px;
+                        height:0px;
                         background:hsl(0, 94%, 66%);
                         display:block;
                         position:absolute;
@@ -101,6 +108,8 @@ const Features = () => {
                         left:50%;
                         transform:translateX(-50%);
                         z-index:2;
+
+                        animation:${animateTab} 200ms ease-in-out forwards;
 
                         @media all and (min-width:850px){
                             width:100%;

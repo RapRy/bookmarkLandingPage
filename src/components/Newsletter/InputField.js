@@ -1,15 +1,33 @@
 import React from 'react'
 
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 import iconError from '../../images/icon-error.svg'
 
 const InputField = React.forwardRef(({ inputErr }, ref) => {
+
+    const animate = keyframes`
+        0%{opacity:0;}
+        100%{opacity:1;}
+    `
+
+    const animateBg = keyframes`
+        0%{background:#fff}
+        100%{background:hsl(0, 94%, 66%)}
+    `
+
+    const animateBorder = keyframes`
+        0%{border:none}
+        100%{border:2px solid hsl(0, 94%, 66%)}
+    `
+
     const InputCont = styled.div`
         position:relative;
-        background:${props => props.inputErr !== 0 && "hsl(0, 94%, 66%)"};
-        border-radius:${props => props.inputErr !== 0 && "5px"};
+        background:${({inputErr}) => inputErr !== 0 ? "hsl(0, 94%, 66%)" : "#fff"};
+        // border-radius:${({inputErr}) => inputErr !== 0 && "5px"};
+        border-radius:5px;
         margin-bottom:10px;
+        animation:${animateBg} 400ms ease-in-out forwards;
 
         input{
             width:100%;
@@ -18,7 +36,8 @@ const InputField = React.forwardRef(({ inputErr }, ref) => {
             display:inline-block;
             border:none;
             font-size:.9rem;
-            border:${props => props.inputErr !== 0 && "2px solid hsl(0, 94%, 66%)"};
+            border:${({inputErr}) => inputErr !== 0 ? "2px solid hsl(0, 94%, 66%)" : "none"};
+            animation:${animateBorder} 100ms ease-in-out ${({inputErr}) => inputErr > 0 && "forwards"};
             
             &::placeholder{
                 font-size:.9rem;
@@ -30,6 +49,9 @@ const InputField = React.forwardRef(({ inputErr }, ref) => {
             position:absolute;
             right:15px;
             top:11px;
+            opacity:0;
+
+            animation:${animate} 400ms ease-in-out forwards;
         }
 
         span{
@@ -42,6 +64,9 @@ const InputField = React.forwardRef(({ inputErr }, ref) => {
             text-align:left;
             font-size:.7rem;
             font-style:italic;
+            opacity:0;
+
+            animation:${animate} 400ms ease-in-out forwards;
         }
     `
 

@@ -1,12 +1,32 @@
 import React, {useState} from 'react'
 
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 
 import iconArrow from '../../images/icon-arrow.svg'
 
 const Accord = ({ val }) => {
 
     const [status, setStatus] = useState(false);
+
+    const animateAccord = keyframes`
+        0%{
+            max-height:0;
+            padding-top:0;
+        }
+        100%{
+            padding-top:20px;
+            max-height:300px;
+        }
+    `
+
+    const animateImage = keyframes`
+        0%{
+            transform:rotate(0deg);
+        }
+        100%{
+            transform:rotate(-180deg);
+        }
+    `
 
     const AccordWrap = styled.div`
         padding:15px 0;
@@ -25,14 +45,17 @@ const Accord = ({ val }) => {
             }
 
             img{
-                transform:${props => props.status ? "rotate(-180deg)" : "rotate(0deg)"};
+                transform:${({status}) => status === true ? "rotate(-180deg)" : "rotate(0deg)"};
                 transform-origin:center;
+                animation:${animateImage} 200ms ease-in-out ${({status}) => status === true ? "forwards" : "reverse"};
             }
         }
 
         .accordBody{
-            padding-top:20px;
-            display:${props => props.status ? "block" : "none"};
+            padding-top:0;
+            overflow:hidden;
+            max-height:0;
+            animation:${animateAccord} 200ms ease-in-out ${({status}) => status === true ? "forwards" : "reverse"};
 
             p{
                 font-size:.8rem;
