@@ -1,4 +1,4 @@
-<h1>IP Address Tracker</h1>
+<h1>Bookmark Landing Page</h1>
 This is my solution to the <a href="https://www.frontendmentor.io/challenges/bookmark-landing-page-5d0b588a9edda32581d29158">:computer_mouse: Bookmark Landing Page</a> from <a href="https://www.frontendmentor.io/">:computer_mouse: Frontend Mentor</a> 
 <br>
 <br>
